@@ -1,0 +1,117 @@
+.footer-container {
+  position: relative;
+  background-color: var(--bg-color, #050505);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 60px 24px 30px;
+  z-index: 10;
+  transition: background-color 0.4s ease;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  max-width: 320px;
+}
+
+.footer-logo {
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.footer-tagline {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  gap: 60px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.footer-col a {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: #6366f1;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Light Theme Adaptations */
+[data-theme="light"] .footer-container {
+  background-color: #e2e8f0;
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .footer-logo {
+  color: #0f172a;
+}
+
+[data-theme="light"] .footer-tagline {
+  color: #475569;
+}
+
+[data-theme="light"] .footer-col h4 {
+  color: #0f172a;
+}
+
+[data-theme="light"] .footer-col a {
+  color: #475569;
+}
+
+[data-theme="light"] .footer-bottom {
+  border-top-color: rgba(0, 0, 0, 0.06);
+  color: #64748b;
+}
+
+/* Responsive Mobile View */
+@media (max-width: 640px) {
+  .footer-container {
+    padding: 40px 16px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-links {
+    gap: 40px;
+  }
+}

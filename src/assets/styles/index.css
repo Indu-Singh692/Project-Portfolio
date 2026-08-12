@@ -1,0 +1,58 @@
+:root, [data-theme="dark"] {
+  --bg-color: #050505;
+  --text-color: #ffffff;
+  --text-muted: #888888;
+  --navbar-bg: rgba(5, 5, 5, 0.4);
+  --navbar-scrolled-bg: rgba(5, 5, 5, 0.88);
+  --navbar-border: rgba(255, 255, 255, 0.08);
+  --nav-link-color: #cccccc;
+  --dropdown-bg: rgba(15, 15, 20, 0.95);
+  --loader-bg: #050505;
+  --accent-orange: #ed733b;
+  --accent-purple: #8b5cf6;
+}
+
+[data-theme="light"] {
+  --bg-color: #f5f5f7;
+  --text-color: #111111;
+  --text-muted: #666666;
+  --navbar-bg: rgba(245, 245, 247, 0.6);
+  --navbar-scrolled-bg: rgba(245, 245, 247, 0.92);
+  --navbar-border: rgba(0, 0, 0, 0.08);
+  --nav-link-color: #333333;
+  --dropdown-bg: rgba(255, 255, 255, 0.95);
+  --loader-bg: #f5f5f7;
+  --accent-orange: #ed733b;
+  --accent-purple: #6366f1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  scrollbar-width: thin;
+  scrollbar-color: #555555 var(--bg-color);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: #555555;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ed733b;
+}
