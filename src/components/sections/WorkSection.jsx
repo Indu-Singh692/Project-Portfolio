@@ -4,7 +4,7 @@ import './WorkSection.css';
 export default function WorkSection() {
   const [activeTab, setActiveTab] = useState('All');
 
-  const categories = ['All', 'Client Project', 'MERN Apps', '3D & Motion'];
+  const categories = ['All', 'Client Project', 'MERN Apps', 'E-Commerce', '3D & Motion'];
 
   const projects = [
     {
@@ -31,21 +31,43 @@ export default function WorkSection() {
     },
     {
       id: 3,
-      title: 'Product Listing Web App',
+      title: 'Catering Services Platform',
       category: 'MERN Apps',
-      subtitle: 'Full-Stack E-Commerce / Inventory App',
-      desc: 'Full-stack product management web application featuring dynamic listing, end-to-end CRUD functionality, RESTful API integration, and MongoDB-based data persistence.',
-      imageGradient: 'linear-gradient(135deg, #10b981 0%, #3b82f6 100%)',
+      subtitle: 'Food & Event Catering System',
+      desc: 'Full-stack food catering management platform allowing users to browse event menus, customize package bookings, manage reservations, and handle customer order workflows.',
+      imageGradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
       link: 'https://github.com/Indu-Singh',
       github: 'https://github.com/Indu-Singh'
     },
     {
       id: 4,
+      title: 'Amazon E-Commerce Clone',
+      category: 'E-Commerce',
+      subtitle: 'Full-Featured Shopping App',
+      desc: 'Responsive e-commerce platform clone featuring dynamic product listing, interactive shopping cart management, user authentication, checkout workflows, and order summaries.',
+      imageGradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+      tags: ['React.js', 'Context API', 'JavaScript', 'CSS3', 'Node.js'],
+      link: 'https://github.com/Indu-Singh',
+      github: 'https://github.com/Indu-Singh'
+    },
+    {
+      id: 5,
+      title: 'Product Listing Web App',
+      category: 'MERN Apps',
+      subtitle: 'Full-Stack Inventory App',
+      desc: 'Product management web application featuring dynamic product listing, end-to-end CRUD functionality, RESTful API integration, and MongoDB-based data persistence.',
+      imageGradient: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+      tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
+      link: 'https://github.com/Indu-Singh',
+      github: 'https://github.com/Indu-Singh'
+    },
+    {
+      id: 6,
       title: '3D Interactive Portfolio',
       category: '3D & Motion',
       subtitle: 'High-Performance Motion Website',
-      desc: 'Creative personal portfolio featuring 300-frame GPU pre-decoded canvas animation, 60 FPS smooth scroll physics, 3D text emergence, and dark/light themes.',
+      desc: 'Creative personal portfolio featuring 300-frame GPU pre-decoded canvas animation, instant progressive loading (<0.5s), 60 FPS smooth scroll physics, 3D text emergence, and dark/light themes.',
       imageGradient: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
       tags: ['React.js', 'Vite', 'Canvas 2D/3D', 'CSS3', 'Modern Glassmorphism'],
       link: 'https://github.com/Indu-Singh692/Project-Portfolio',
@@ -69,7 +91,7 @@ export default function WorkSection() {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="section-subtitle">
-            Real-world client applications, full-stack MERN platforms, and interactive web projects built by Indu Singh.
+            Real-world client applications, full-stack MERN platforms, E-Commerce apps, and interactive web projects built by Indu Singh.
           </p>
 
           {/* Filter Tabs */}
