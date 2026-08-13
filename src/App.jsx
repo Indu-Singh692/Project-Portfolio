@@ -9,22 +9,30 @@ import AboutSection from './components/sections/AboutSection';
 import ProcessSection from './components/sections/ProcessSection';
 import ContactSection from './components/sections/ContactSection';
 
-const FRAME_COUNT = 300;
-const CONCURRENCY_LIMIT = 24; // 24 parallel GPU decoding workers for fast loading
-
-function getFrameUrl(index) {
-  const paddedIndex = String(index).padStart(3, '0');
-  return `/images/ezgif-frame-${paddedIndex}.jpg`;
-}
+const TOTAL_SOURCE_FRAMES = 300;
+const DESKTOP_FRAME_COUNT = 200; // 200 frames on Desktop for ultra smooth 60FPS
+const MOBILE_FRAME_COUNT = 38;    // 38 keyframes on Mobile for <1 second instant load
+const CONCURRENCY_LIMIT = 24;
 
 export default function App() {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [theme, setTheme] = useState('dark');
-  const bitmapsRef = useRef(new Array(FRAME_COUNT));
+  const [frameCount, setFrameCount] = useState(() => 
+    typeof window !== 'undefined' && window.innerWidth < 640 ? MOBILE_FRAME_COUNT : DESKTOP_FRAME_COUNT
+  );
+  
+  const bitmapsRef = useRef([]);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+  };
+
+  // Map step index [0..frameCount - 1] to actual source frame index [1..300]
+  const getActualFrameIndex = (step, totalSteps) => {
+    if (totalSteps <= 1) return 1;
+    const ratio = step / (totalSteps - 1);
+    return Math.min(TOTAL_SOURCE_FRAMES, Math.max(1, Math.round(ratio * (TOTAL_SOURCE_FRAMES - 1)) + 1));
   };
 
   useEffect(() => {
@@ -33,33 +41,38 @@ export default function App() {
 
   useEffect(() => {
     let loadedCount = 0;
+    const activeFrameCount = frameCount;
+    bitmapsRef.current = new Array(activeFrameCount);
 
-    async function loadFrame(index) {
-      const url = getFrameUrl(index);
+    async function loadFrame(stepIndex) {
+      const actualIndex = getActualFrameIndex(stepIndex, activeFrameCount);
+      const paddedIndex = String(actualIndex).padStart(3, '0');
+      const url = `/images/ezgif-frame-${paddedIndex}.jpg`;
+
       try {
         const response = await fetch(url);
         const blob = await response.blob();
         const bitmap = await createImageBitmap(blob, {
-          resizeQuality: 'high'
+          resizeQuality: activeFrameCount <= MOBILE_FRAME_COUNT ? 'medium' : 'high'
         });
-        bitmapsRef.current[index - 1] = bitmap;
+        bitmapsRef.current[stepIndex] = bitmap;
       } catch (e) {
-        console.error(`Error loading frame ${index}:`, e);
+        console.error(`Error loading frame ${actualIndex}:`, e);
       }
 
       loadedCount++;
-      const pct = Math.floor((loadedCount / FRAME_COUNT) * 100);
+      const pct = Math.floor((loadedCount / activeFrameCount) * 100);
       setProgress(pct);
     }
 
     async function loadAllFramesConcurrently() {
-      const queue = Array.from({ length: FRAME_COUNT }, (_, i) => i + 1);
+      const queue = Array.from({ length: activeFrameCount }, (_, i) => i);
 
       async function worker() {
         while (queue.length > 0) {
-          const frameIndex = queue.shift();
-          if (frameIndex) {
-            await loadFrame(frameIndex);
+          const stepIndex = queue.shift();
+          if (stepIndex !== undefined) {
+            await loadFrame(stepIndex);
           }
         }
       }
@@ -67,18 +80,18 @@ export default function App() {
       const workers = Array.from({ length: CONCURRENCY_LIMIT }, () => worker());
       await Promise.all(workers);
 
-      // 100% of 300 frames pre-decoded in GPU VRAM -> Smooth reveal
+      // Fast pre-decoded reveal
       setIsLoaded(true);
     }
 
     loadAllFramesConcurrently();
-  }, []);
+  }, [frameCount]);
 
   return (
     <main id="home">
       <Preloader progress={progress} isLoaded={isLoaded} />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <ScrollCanvas bitmapsRef={bitmapsRef} frameCount={FRAME_COUNT} isLoaded={isLoaded} />
+      <ScrollCanvas bitmapsRef={bitmapsRef} frameCount={frameCount} isLoaded={isLoaded} />
       <SolutionsSection />
       <WorkSection />
       <AboutSection />
