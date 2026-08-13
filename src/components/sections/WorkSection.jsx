@@ -40,7 +40,7 @@ export default function WorkSection() {
       image: rsfImg,
       imageGradient: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
-      link: '#'
+      link: 'https://productcrud-frontend.onrender.com/'
     },
     {
       id: 4,
