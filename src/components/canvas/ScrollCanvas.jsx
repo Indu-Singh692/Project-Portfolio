@@ -12,7 +12,21 @@ export default function ScrollCanvas({ bitmapsRef, frameCount = 300, isLoaded })
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const bmp = bitmapsRef.current[index];
+    
+    // Find exact bitmap or nearest decoded fallback bitmap
+    let bmp = bitmapsRef.current[index];
+    if (!bmp && bitmapsRef.current.length > 0) {
+      for (let offset = 1; offset < frameCount; offset++) {
+        if (index - offset >= 0 && bitmapsRef.current[index - offset]) {
+          bmp = bitmapsRef.current[index - offset];
+          break;
+        }
+        if (index + offset < frameCount && bitmapsRef.current[index + offset]) {
+          bmp = bitmapsRef.current[index + offset];
+          break;
+        }
+      }
+    }
     if (!bmp) return;
 
     const canvasWidth = canvas.width;

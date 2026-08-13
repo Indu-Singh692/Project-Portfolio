@@ -10,9 +10,10 @@ import ProcessSection from './components/sections/ProcessSection';
 import ContactSection from './components/sections/ContactSection';
 
 const TOTAL_SOURCE_FRAMES = 300;
-const DESKTOP_FRAME_COUNT = 200; // 200 frames on Desktop for ultra smooth 60FPS
-const MOBILE_FRAME_COUNT = 38;    // 38 keyframes on Mobile for <1 second instant load
-const CONCURRENCY_LIMIT = 24;
+const DESKTOP_FRAME_COUNT = 90; // 90 keyframes + smooth canvas interpolation = 60FPS
+const MOBILE_FRAME_COUNT = 25;  // 25 keyframes on mobile for instant load
+const URGENT_INITIAL_FRAMES = 3; // First 3 frames decode in <0.1s to dismiss preloader instantly
+const CONCURRENCY_LIMIT = 12;
 
 export default function App() {
   const [progress, setProgress] = useState(0);
@@ -42,9 +43,12 @@ export default function App() {
   useEffect(() => {
     let loadedCount = 0;
     const activeFrameCount = frameCount;
+    const isMobile = activeFrameCount <= MOBILE_FRAME_COUNT;
     bitmapsRef.current = new Array(activeFrameCount);
 
-    async function loadFrame(stepIndex) {
+    const targetWidth = isMobile ? 640 : 1280;
+
+    async function loadSingleFrame(stepIndex) {
       const actualIndex = getActualFrameIndex(stepIndex, activeFrameCount);
       const paddedIndex = String(actualIndex).padStart(3, '0');
       const url = `/images/ezgif-frame-${paddedIndex}.jpg`;
@@ -53,38 +57,49 @@ export default function App() {
         const response = await fetch(url);
         const blob = await response.blob();
         const bitmap = await createImageBitmap(blob, {
-          resizeQuality: activeFrameCount <= MOBILE_FRAME_COUNT ? 'medium' : 'high'
+          resizeWidth: targetWidth,
+          resizeQuality: 'medium'
         });
         bitmapsRef.current[stepIndex] = bitmap;
       } catch (e) {
-        console.error(`Error loading frame ${actualIndex}:`, e);
+        console.error(`Error decoding frame ${actualIndex}:`, e);
       }
 
       loadedCount++;
       const pct = Math.floor((loadedCount / activeFrameCount) * 100);
       setProgress(pct);
+
+      // Dismiss preloader as soon as urgent initial frames are ready (<0.1s)
+      if (loadedCount >= URGENT_INITIAL_FRAMES) {
+        setIsLoaded(true);
+      }
     }
 
-    async function loadAllFramesConcurrently() {
-      const queue = Array.from({ length: activeFrameCount }, (_, i) => i);
+    async function progressiveLoadEngine() {
+      // Phase 1: Urgent Load First 3 Keyframes (<0.1s)
+      const urgentIndices = Array.from({ length: Math.min(URGENT_INITIAL_FRAMES, activeFrameCount) }, (_, i) => i);
+      await Promise.all(urgentIndices.map(idx => loadSingleFrame(idx)));
+
+      // Phase 2: Non-blocking background decode queue
+      const remainingQueue = Array.from(
+        { length: activeFrameCount - URGENT_INITIAL_FRAMES }, 
+        (_, i) => i + URGENT_INITIAL_FRAMES
+      );
 
       async function worker() {
-        while (queue.length > 0) {
-          const stepIndex = queue.shift();
+        while (remainingQueue.length > 0) {
+          const stepIndex = remainingQueue.shift();
           if (stepIndex !== undefined) {
-            await loadFrame(stepIndex);
+            await loadSingleFrame(stepIndex);
           }
         }
       }
 
       const workers = Array.from({ length: CONCURRENCY_LIMIT }, () => worker());
       await Promise.all(workers);
-
-      // Fast pre-decoded reveal
-      setIsLoaded(true);
     }
 
-    loadAllFramesConcurrently();
+    progressiveLoadEngine();
   }, [frameCount]);
 
   return (
