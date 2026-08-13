@@ -3,6 +3,7 @@ import './WorkSection.css';
 import rsfImg from '../../assets/image/rsfimage.webp';
 import omniImg from '../../assets/image/omnirentalimage.webp';
 import productImg from '../../assets/image/productimage.png';
+import portfolioImg from '../../assets/image/projectportfolioimage.png';
 
 export default function WorkSection() {
   const [activeTab, setActiveTab] = useState('All');
@@ -49,6 +50,7 @@ export default function WorkSection() {
       category: '3D & Motion',
       subtitle: 'High-Performance Motion Website',
       desc: 'Creative personal portfolio featuring 300-frame GPU pre-decoded canvas animation, instant progressive loading (<0.5s), 60 FPS smooth scroll physics, 3D text emergence, and dark/light themes.',
+      image: portfolioImg,
       imageGradient: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
       tags: ['React.js', 'Vite', 'Canvas 2D/3D', 'CSS3', 'Modern Glassmorphism'],
       link: '#home'
