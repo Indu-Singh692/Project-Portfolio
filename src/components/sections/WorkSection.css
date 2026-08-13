@@ -126,6 +126,15 @@
   flex-grow: 1;
 }
 
+.work-subtitle-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ed733b;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
 .work-title {
   font-size: 1.4rem;
   font-weight: 700;

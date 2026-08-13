@@ -72,6 +72,51 @@
   font-weight: 600;
 }
 
+.mt-16 {
+  margin-top: 20px;
+}
+
+.social-links-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.social-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.linkedin {
+  background: rgba(10, 102, 194, 0.15);
+  border: 1px solid rgba(10, 102, 194, 0.35);
+  color: #0077b5;
+}
+
+.linkedin:hover {
+  background: rgba(10, 102, 194, 0.3);
+  transform: translateY(-2px);
+}
+
+.github {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.github:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
 .online-dot {
   width: 8px;
   height: 8px;

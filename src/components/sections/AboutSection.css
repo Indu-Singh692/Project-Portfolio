@@ -9,8 +9,8 @@
 .about-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
-  align-items: center;
+  gap: 50px;
+  align-items: start;
 }
 
 .text-left {
@@ -18,39 +18,112 @@
 }
 
 .about-text {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   color: rgba(255, 255, 255, 0.78);
   line-height: 1.7;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
-.about-stats-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 36px;
+/* Sub Headings */
+.sub-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 28px;
+  margin-bottom: 16px;
+  border-left: 3px solid #6366f1;
+  padding-left: 10px;
 }
 
-.stat-card {
+/* Education Cards */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.edu-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  padding: 20px 16px;
-  text-align: center;
+  border-radius: 16px;
+  padding: 18px;
+  transition: all 0.3s ease;
 }
 
-.stat-number {
-  display: block;
-  font-size: 2rem;
-  font-weight: 800;
+.edu-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.edu-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #6366f1;
+  background: rgba(99, 102, 241, 0.12);
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.edu-score {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.edu-degree {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
   margin-bottom: 4px;
 }
 
-.stat-label {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 500;
+.edu-inst {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.edu-loc {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Certifications Chips */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+.cert-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+}
+
+.cert-icon {
+  font-size: 1.4rem;
+}
+
+.cert-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.cert-provider {
+  font-size: 0.78rem;
+  color: #a5b4fc;
 }
 
 /* Skills Card */
@@ -59,11 +132,11 @@
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 24px;
-  padding: 36px;
+  padding: 32px;
 }
 
 .skills-heading {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 24px;
@@ -72,7 +145,7 @@
 .skills-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
 .skill-item {
@@ -84,7 +157,7 @@
 .skill-info {
   display: flex;
   justify-content: space-between;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -107,7 +180,37 @@
   transition: width 1s ease-out;
 }
 
-/* Light Theme */
+/* Developer Tools */
+.tools-sub-block {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tools-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.tools-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tool-tag {
+  padding: 6px 12px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  color: #c7d2fe;
+  font-weight: 500;
+}
+
+/* Light Theme Adaptations */
 [data-theme="light"] .about-section {
   background-color: #f8fafc;
 }
@@ -116,13 +219,30 @@
   color: #475569;
 }
 
-[data-theme="light"] .stat-card {
+[data-theme="light"] .sub-heading {
+  color: #0f172a;
+}
+
+[data-theme="light"] .edu-card {
   background: #ffffff;
   border-color: rgba(0, 0, 0, 0.08);
 }
 
-[data-theme="light"] .stat-label {
-  color: #64748b;
+[data-theme="light"] .edu-degree {
+  color: #0f172a;
+}
+
+[data-theme="light"] .edu-inst {
+  color: #475569;
+}
+
+[data-theme="light"] .cert-chip {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .cert-title {
+  color: #0f172a;
 }
 
 [data-theme="light"] .skills-card {
@@ -131,7 +251,8 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
-[data-theme="light"] .skills-heading {
+[data-theme="light"] .skills-heading,
+[data-theme="light"] .tools-heading {
   color: #0f172a;
 }
 
@@ -153,23 +274,6 @@
   }
 
   .skills-card {
-    padding: 24px 20px;
-  }
-
-  .about-stats-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .stat-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 20px;
-  }
-
-  .stat-number {
-    margin-bottom: 0;
-    font-size: 1.6rem;
+    padding: 24px 18px;
   }
 }
