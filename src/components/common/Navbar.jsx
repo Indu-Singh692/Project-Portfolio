@@ -72,28 +72,28 @@ export default function Navbar({ theme, toggleTheme }) {
 
             {dropdownOpen && (
               <div className="dropdown-menu">
-                <a href="#fullstack" className="dropdown-item">
+                <a href="https://rsf-a.onrender.com/pledge" target="_blank" rel="noreferrer" className="dropdown-item">
                   <span className="item-dot dot-blue"></span>
                   <div>
-                    <div className="item-title">MERN Stack Apps</div>
-                    <div className="item-desc">Custom React & Node.js solutions</div>
+                    <div className="item-title">MERN Stack Apps ↗</div>
+                    <div className="item-desc">RSF Client & OmniRental Live Demos</div>
                   </div>
                 </a>
-                <a href="#webdev" className="dropdown-item">
+                <a href="#solutions" className="dropdown-item">
                   <span className="item-dot dot-orange"></span>
                   <div>
                     <div className="item-title">Web Development</div>
                     <div className="item-desc">High performance web platforms</div>
                   </div>
                 </a>
-                <a href="#uiux" className="dropdown-item">
+                <a href="#work" className="dropdown-item">
                   <span className="item-dot dot-purple"></span>
                   <div>
-                    <div className="item-title">UI/UX Design</div>
-                    <div className="item-desc">Intuitive & modern user experiences</div>
+                    <div className="item-title">UI/UX & 3D Projects</div>
+                    <div className="item-desc">Interactive motion portfolio apps</div>
                   </div>
                 </a>
-                <a href="#seo" className="dropdown-item">
+                <a href="#solutions" className="dropdown-item">
                   <span className="item-dot dot-emerald"></span>
                   <div>
                     <div className="item-title">SEO & Speed</div>

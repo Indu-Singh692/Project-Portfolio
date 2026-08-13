@@ -12,10 +12,10 @@ export default function WorkSection() {
       title: 'Rashtra Seva Foundation (RSF)',
       category: 'Client Project',
       subtitle: 'Real-World Client Project',
-      desc: 'Full-stack NGO web application for a real-world client. Features volunteer management, registration workflows, preferred-language support, Cloudinary file uploads, and automated Brevo transactional email notifications.',
+      desc: 'Full-stack NGO web application for a real-world client. Features volunteer registration, pledge management, preferred-language support, Cloudinary file uploads, and automated Brevo transactional email notifications.',
       imageGradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'Brevo Email'],
-      link: 'https://github.com/Indu-Singh',
+      link: 'https://rsf-a.onrender.com/pledge',
       github: 'https://github.com/Indu-Singh'
     },
     {
@@ -26,7 +26,7 @@ export default function WorkSection() {
       desc: 'Full-stack rental management platform with dedicated landlord & tenant workflows, user authentication, role-based access control, profile management, and property CRUD operations.',
       imageGradient: 'linear-gradient(135deg, #ed733b 0%, #ff9f43 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap'],
-      link: 'https://github.com/Indu-Singh',
+      link: 'https://rsf-a.onrender.com/pledge',
       github: 'https://github.com/Indu-Singh'
     },
     {
@@ -69,7 +69,7 @@ export default function WorkSection() {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="section-subtitle">
-            Real-world client applications, full-stack MERN platforms, and interactive web projects built by Indu Singh.
+            Real-world client applications, full-stack MERN platforms, and interactive web projects built by Indu Singh. Click any project card to launch the live demo!
           </p>
 
           {/* Filter Tabs */}
@@ -89,29 +89,37 @@ export default function WorkSection() {
         {/* Project Cards Grid */}
         <div className="work-grid">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="work-card">
-              <div 
-                className="work-preview" 
-                style={{ background: project.imageGradient }}
-              >
-                <div className="work-category-chip">{project.category}</div>
-                <div className="preview-overlay">
-                  <a href={project.github} className="preview-btn" target="_blank" rel="noreferrer">
-                    View Project ↗
-                  </a>
+            <a 
+              key={project.id} 
+              href={project.link} 
+              target="_blank" 
+              rel="noreferrer"
+              className="work-card-anchor"
+            >
+              <div className="work-card">
+                <div 
+                  className="work-preview" 
+                  style={{ background: project.imageGradient }}
+                >
+                  <div className="work-category-chip">{project.category}</div>
+                  <div className="preview-overlay">
+                    <span className="preview-btn primary-preview-btn">
+                      Live Demo ↗
+                    </span>
+                  </div>
+                </div>
+                <div className="work-info">
+                  <div className="work-subtitle-badge">{project.subtitle}</div>
+                  <h3 className="work-title">{project.title}</h3>
+                  <p className="work-desc">{project.desc}</p>
+                  <div className="work-tags">
+                    {project.tags.map((t, idx) => (
+                      <span key={idx} className="work-tag">{t}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className="work-info">
-                <div className="work-subtitle-badge">{project.subtitle}</div>
-                <h3 className="work-title">{project.title}</h3>
-                <p className="work-desc">{project.desc}</p>
-                <div className="work-tags">
-                  {project.tags.map((t, idx) => (
-                    <span key={idx} className="work-tag">{t}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
