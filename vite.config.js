@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    open: false,
+    strictPort: true, // Always force Port 3000 (never auto-switch ports)
+    host: true,
   },
 });
