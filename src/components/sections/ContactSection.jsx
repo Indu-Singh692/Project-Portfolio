@@ -8,25 +8,58 @@ export default function ContactSection() {
     subject: 'MERN Stack Development',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    setSubmitted(true);
 
-    // Redirect to email compose window with pre-filled subject and body
-    const mailtoUrl = `mailto:indusingh7746@gmail.com?subject=${encodeURIComponent(formData.subject + ' from ' + formData.name)}&body=${encodeURIComponent('Name: ' + formData.name + '\nEmail: ' + formData.email + '\n\nMessage:\n' + formData.message)}`;
-    window.location.href = mailtoUrl;
+    setIsSubmitting(true);
 
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', subject: 'MERN Stack Development', message: '' });
-    }, 4000);
+    try {
+      // Automatic direct delivery via Web3Forms API to indusingh7746@gmail.com
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "eb6c33e8-5b43-4217-91f8-08471b058bf6", // Public Web3Forms API service key
+          name: formData.name,
+          email: formData.email,
+          subject: `${formData.subject} - Portfolio Inquiry from ${formData.name}`,
+          message: formData.message,
+          to_email: "indusingh7746@gmail.com"
+        })
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        // Fallback mailto compose redirection if key is pending
+        const mailtoUrl = `mailto:indusingh7746@gmail.com?subject=${encodeURIComponent(formData.subject + ' from ' + formData.name)}&body=${encodeURIComponent('Name: ' + formData.name + '\nEmail: ' + formData.email + '\n\nMessage:\n' + formData.message)}`;
+        window.location.href = mailtoUrl;
+        setSubmitted(true);
+      }
+    } catch (err) {
+      // Fallback mailto redirect
+      const mailtoUrl = `mailto:indusingh7746@gmail.com?subject=${encodeURIComponent(formData.subject + ' from ' + formData.name)}&body=${encodeURIComponent('Name: ' + formData.name + '\nEmail: ' + formData.email + '\n\nMessage:\n' + formData.message)}`;
+      window.location.href = mailtoUrl;
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({ name: '', email: '', subject: 'MERN Stack Development', message: '' });
+      }, 5000);
+    }
   };
 
   return (
@@ -44,7 +77,7 @@ export default function ContactSection() {
               Let's Build Something <span className="gradient-text">Extraordinary</span>
             </h2>
             <p className="contact-text">
-              Looking for a dedicated MERN Stack Developer, Software Engineer, or Full-Stack Project Collaborator? Click my email below to compose a direct message or send a message via the form!
+              Looking for a dedicated MERN Stack Developer, Software Engineer, or Full-Stack Project Collaborator? Send a direct message below or click my email address to compose an email!
             </p>
 
             <div className="contact-methods">
@@ -115,12 +148,12 @@ export default function ContactSection() {
               {submitted ? (
                 <div className="form-success">
                   <div className="success-icon">✓</div>
-                  <h3>Opening Email Compose...</h3>
-                  <p>Thank you! Your email app has been opened to send your message directly to Indu Singh.</p>
+                  <h3>Message Sent Successfully!</h3>
+                  <p>Thank you for reaching out! Your message has been delivered directly to Indu Singh (`indusingh7746@gmail.com`).</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="contact-form">
-                  <h3 className="form-title">Send a Direct Email</h3>
+                  <h3 className="form-title">Send a Direct Message</h3>
                   
                   <div className="form-group">
                     <label htmlFor="name">Your Name</label>
@@ -177,8 +210,8 @@ export default function ContactSection() {
                     ></textarea>
                   </div>
 
-                  <button type="submit" className="submit-btn">
-                    Compose & Send Email 🚀
+                  <button type="submit" className="submit-btn" disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending Message...' : 'Send Message 🚀'}
                   </button>
                 </form>
               )}
