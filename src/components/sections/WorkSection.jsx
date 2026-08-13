@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './WorkSection.css';
 import rsfImg from '../../assets/image/rsfimage.webp';
 import omniImg from '../../assets/image/omnirentalimage.webp';
+import productImg from '../../assets/image/productimage.png';
 
 export default function WorkSection() {
   const [activeTab, setActiveTab] = useState('All');
@@ -37,7 +38,7 @@ export default function WorkSection() {
       category: 'MERN Apps',
       subtitle: 'Full-Stack Inventory App',
       desc: 'Product management web application featuring dynamic product listing, end-to-end CRUD functionality, RESTful API integration, and MongoDB-based data persistence.',
-      image: rsfImg,
+      image: productImg,
       imageGradient: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
       link: 'https://productcrud-frontend.onrender.com/'
