@@ -1,5 +1,6 @@
 import React from 'react';
 import './AboutSection.css';
+import induImg from '../../assets/image/indu.png';
 
 export default function AboutSection() {
   const skills = [
@@ -48,6 +49,23 @@ export default function AboutSection() {
             <h2 className="section-title text-left">
               MERN Stack <span className="gradient-text">Developer</span>
             </h2>
+
+            {/* Profile Avatar Header */}
+            <div className="about-profile-header">
+              <div className="profile-avatar-wrapper">
+                <img src={induImg} alt="Indu Singh" className="profile-avatar-img" />
+                <div className="avatar-glow-ring"></div>
+              </div>
+              <div className="profile-header-meta">
+                <h3 className="profile-name">Indu Singh</h3>
+                <p className="profile-role">MERN Stack Developer & Software Engineer</p>
+                <div className="profile-badges">
+                  <span className="profile-chip">🎓 MCA - 8.34 CGPA</span>
+                  <span className="profile-chip">📍 Indore, MP</span>
+                </div>
+              </div>
+            </div>
+
             <p className="about-text">
               I am <strong>Indu Singh</strong>, an enthusiastic and detail-oriented Master of Computer Applications (MCA) graduate from Medi-Caps University with a strong academic record (<strong>CGPA 8.34</strong>).
             </p>
