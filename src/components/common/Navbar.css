@@ -9,7 +9,7 @@
   background: transparent;
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
-  border-bottom: 1px solid transparent;
+  border: none;
   margin: 0 auto;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -21,17 +21,17 @@
   max-width: 1120px;
   height: 64px;
   border-radius: 40px;
-  background: rgba(12, 12, 18, 0.75);
+  background: rgba(12, 12, 18, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 20px rgba(237, 115, 59, 0.08);
+  border: none;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 [data-theme="light"] .navbar-header.scrolled {
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1), 0 0 20px rgba(99, 102, 241, 0.08);
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-container {
