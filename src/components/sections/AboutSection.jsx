@@ -39,8 +39,8 @@ export default function AboutSection() {
     <section id="about" className="about-section">
       <div className="section-container">
         <div className="about-grid">
-          
-          {/* Bio, Education & Certifications Column (Left) */}
+
+          {/* Left Column: Name, Bio, Education & Certifications */}
           <div className="about-bio-col">
             <div className="section-badge">
               <span className="badge-dot"></span>
@@ -49,6 +49,17 @@ export default function AboutSection() {
             <h2 className="section-title text-left">
               MERN Stack <span className="gradient-text">Developer</span>
             </h2>
+
+            {/* Author Header Meta */}
+            <div className="author-meta-block">
+              <h3 className="author-name">Indu Singh</h3>
+              <p className="author-role">MERN Stack Developer & Software Engineer</p>
+              <div className="author-chips-row">
+                <span className="meta-chip">🎓 MCA (8.34 CGPA)</span>
+                <span className="meta-chip">📍 Indore, MP</span>
+                <span className="meta-chip">💻 Full-Stack Dev</span>
+              </div>
+            </div>
 
             <p className="about-text">
               I am <strong>Indu Singh</strong>, an enthusiastic and detail-oriented Master of Computer Applications (MCA) graduate from Medi-Caps University with a strong academic record (<strong>CGPA 8.34</strong>).
@@ -92,24 +103,12 @@ export default function AboutSection() {
 
           </div>
 
-          {/* Profile Photo & Technical Skills Column (Right Side-by-Side) */}
+          {/* Right Column: Perfectly Framed Profile Image & Technical Skills */}
           <div className="about-skills-col">
-            
-            {/* Prominent Profile Photo Card */}
-            <div className="profile-hero-card">
-              <div className="profile-image-container">
-                <img src={induImg} alt="Indu Singh" className="profile-hero-img" />
-                <div className="profile-hero-overlay"></div>
-              </div>
-              <div className="profile-hero-info">
-                <h3 className="profile-hero-name">Indu Singh</h3>
-                <p className="profile-hero-title">MERN Stack Developer & Software Engineer</p>
-                <div className="profile-hero-tags">
-                  <span className="hero-tag">🎓 MCA - 8.34 CGPA</span>
-                  <span className="hero-tag">📍 Indore, MP</span>
-                  <span className="hero-tag">💻 Full-Stack Dev</span>
-                </div>
-              </div>
+
+            {/* Clean Portrait Image Frame (Zero Text Overlay, Face Perfectly Centered) */}
+            <div className="profile-portrait-frame">
+              <img src={induImg} alt="Indu Singh" className="portrait-img" />
             </div>
 
             {/* Technical Skills Card */}
@@ -123,9 +122,9 @@ export default function AboutSection() {
                       <span className="skill-pct">{skill.level}%</span>
                     </div>
                     <div className="skill-bar-track">
-                      <div 
+                      <div
                         className="skill-bar-fill"
-                        style={{ 
+                        style={{
                           width: `${skill.level}%`,
                           background: skill.color,
                           boxShadow: `0 0 12px ${skill.color}`

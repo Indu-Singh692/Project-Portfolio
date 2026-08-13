@@ -17,6 +17,47 @@
   text-align: left !important;
 }
 
+/* Author Meta Block in Left Column */
+.author-meta-block {
+  margin-top: 12px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+}
+
+.author-name {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.author-role {
+  font-size: 0.88rem;
+  color: #a5b4fc;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.author-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta-chip {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  color: #c7d2fe;
+}
+
 .about-text {
   font-size: 1.02rem;
   color: rgba(255, 255, 255, 0.78);
@@ -35,83 +76,37 @@
   padding-left: 10px;
 }
 
-/* Prominent Profile Hero Card in Right Column */
-.profile-hero-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+/* Clean Centered Portrait Frame on Right (Zero Text Overlay) */
+.profile-portrait-frame {
+  width: 100%;
   border-radius: 24px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   margin-bottom: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  background: rgba(18, 18, 24, 0.8);
   transition: all 0.35s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-hero-card:hover {
+.profile-portrait-frame:hover {
   border-color: rgba(99, 102, 241, 0.4);
   box-shadow: 0 25px 50px rgba(99, 102, 241, 0.15);
 }
 
-.profile-image-container {
-  position: relative;
+.portrait-img {
   width: 100%;
-  height: 320px;
-  overflow: hidden;
-  background: linear-gradient(135deg, #1e1b4b 0%, #311b92 100%);
-}
-
-.profile-hero-img {
-  width: 100%;
-  height: 100%;
+  height: 420px;
   object-fit: cover;
-  object-position: top center;
+  object-position: center bottom;
+  display: block;
   transition: transform 0.5s ease;
 }
 
-.profile-hero-card:hover .profile-hero-img {
-  transform: scale(1.04);
-}
-
-.profile-hero-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(to top, rgba(12, 12, 18, 0.95), transparent);
-}
-
-.profile-hero-info {
-  padding: 20px 24px;
-}
-
-.profile-hero-name {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 4px;
-}
-
-.profile-hero-title {
-  font-size: 0.9rem;
-  color: #a5b4fc;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.profile-hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.hero-tag {
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 12px;
-  background: rgba(99, 102, 241, 0.12);
-  border: 1px solid rgba(99, 102, 241, 0.25);
-  color: #c7d2fe;
+.profile-portrait-frame:hover .portrait-img {
+  transform: scale(1.03);
 }
 
 /* Education Cards */
@@ -294,6 +289,15 @@
   background-color: #f8fafc;
 }
 
+[data-theme="light"] .author-meta-block {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .author-name {
+  color: #0f172a;
+}
+
 [data-theme="light"] .about-text {
   color: #475569;
 }
@@ -302,13 +306,9 @@
   color: #0f172a;
 }
 
-[data-theme="light"] .profile-hero-card {
+[data-theme="light"] .profile-portrait-frame {
   background: #ffffff;
   border-color: rgba(0, 0, 0, 0.08);
-}
-
-[data-theme="light"] .profile-hero-name {
-  color: #0f172a;
 }
 
 [data-theme="light"] .edu-card {
@@ -355,8 +355,8 @@
     gap: 40px;
   }
 
-  .profile-image-container {
-    height: 280px;
+  .portrait-img {
+    height: 360px;
   }
 }
 
@@ -369,7 +369,7 @@
     padding: 24px 18px;
   }
 
-  .profile-image-container {
-    height: 240px;
+  .portrait-img {
+    height: 300px;
   }
 }
