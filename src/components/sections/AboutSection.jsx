@@ -40,7 +40,7 @@ export default function AboutSection() {
       <div className="section-container">
         <div className="about-grid">
           
-          {/* Bio & Education Column */}
+          {/* Bio, Education & Certifications Column (Left) */}
           <div className="about-bio-col">
             <div className="section-badge">
               <span className="badge-dot"></span>
@@ -50,22 +50,6 @@ export default function AboutSection() {
               MERN Stack <span className="gradient-text">Developer</span>
             </h2>
 
-            {/* Profile Avatar Header */}
-            <div className="about-profile-header">
-              <div className="profile-avatar-wrapper">
-                <img src={induImg} alt="Indu Singh" className="profile-avatar-img" />
-                <div className="avatar-glow-ring"></div>
-              </div>
-              <div className="profile-header-meta">
-                <h3 className="profile-name">Indu Singh</h3>
-                <p className="profile-role">MERN Stack Developer & Software Engineer</p>
-                <div className="profile-badges">
-                  <span className="profile-chip">🎓 MCA - 8.34 CGPA</span>
-                  <span className="profile-chip">📍 Indore, MP</span>
-                </div>
-              </div>
-            </div>
-
             <p className="about-text">
               I am <strong>Indu Singh</strong>, an enthusiastic and detail-oriented Master of Computer Applications (MCA) graduate from Medi-Caps University with a strong academic record (<strong>CGPA 8.34</strong>).
             </p>
@@ -73,7 +57,7 @@ export default function AboutSection() {
               I specialize in building user-friendly, scalable web applications using <strong>JavaScript, Core Java, React.js, Node.js, Express.js, and MongoDB</strong>. Known for quick adaptability and problem-solving, I create high-performance client solutions and modern digital platforms.
             </p>
 
-            {/* Education Timeline */}
+            {/* Academic Education Block */}
             <div className="education-block">
               <h3 className="sub-heading">Academic Education</h3>
               <div className="education-list">
@@ -108,8 +92,27 @@ export default function AboutSection() {
 
           </div>
 
-          {/* Technical Skills Column */}
+          {/* Profile Photo & Technical Skills Column (Right Side-by-Side) */}
           <div className="about-skills-col">
+            
+            {/* Prominent Profile Photo Card */}
+            <div className="profile-hero-card">
+              <div className="profile-image-container">
+                <img src={induImg} alt="Indu Singh" className="profile-hero-img" />
+                <div className="profile-hero-overlay"></div>
+              </div>
+              <div className="profile-hero-info">
+                <h3 className="profile-hero-name">Indu Singh</h3>
+                <p className="profile-hero-title">MERN Stack Developer & Software Engineer</p>
+                <div className="profile-hero-tags">
+                  <span className="hero-tag">🎓 MCA - 8.34 CGPA</span>
+                  <span className="hero-tag">📍 Indore, MP</span>
+                  <span className="hero-tag">💻 Full-Stack Dev</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Technical Skills Card */}
             <div className="skills-card">
               <h3 className="skills-heading">Technical Skills & Proficiency</h3>
               <div className="skills-list">
@@ -133,7 +136,7 @@ export default function AboutSection() {
                 ))}
               </div>
 
-              {/* Developer Tools Badge Grid */}
+              {/* Developer Tools & IDEs */}
               <div className="tools-sub-block">
                 <h4 className="tools-heading">Developer Tools & IDEs</h4>
                 <div className="tools-tags">
