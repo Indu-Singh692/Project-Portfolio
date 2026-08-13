@@ -53,7 +53,7 @@ export default function WorkSection() {
       image: portfolioImg,
       imageGradient: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
       tags: ['React.js', 'Vite', 'Canvas 2D/3D', 'CSS3', 'Modern Glassmorphism'],
-      link: '#home'
+      link: 'https://projectportfolio-lvjl.onrender.com'
     }
   ];
 
