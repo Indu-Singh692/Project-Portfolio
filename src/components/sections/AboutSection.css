@@ -307,8 +307,9 @@
 }
 
 [data-theme="light"] .profile-portrait-frame {
-  background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.08);
+  background: #000000;
+  border-color: #000000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="light"] .edu-card {
