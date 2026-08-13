@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './WorkSection.css';
+import rsfImg from '../../assets/image/rsfimage.webp';
+import omniImg from '../../assets/image/omnirentalimage.webp';
 
 export default function WorkSection() {
   const [activeTab, setActiveTab] = useState('All');
@@ -13,6 +15,7 @@ export default function WorkSection() {
       category: 'Client Project',
       subtitle: 'Real-World Client Project',
       desc: 'Full-stack NGO web application for a real-world client. Features volunteer registration, pledge management, preferred-language support, Cloudinary file uploads, and automated Brevo transactional email notifications.',
+      image: rsfImg,
       imageGradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'Brevo Email'],
       link: 'https://rsf-a.onrender.com/pledge',
@@ -24,6 +27,7 @@ export default function WorkSection() {
       category: 'MERN Apps',
       subtitle: 'Rental Management Suite',
       desc: 'Full-stack rental management platform with dedicated landlord & tenant workflows, user authentication, role-based access control, profile management, and property CRUD operations.',
+      image: omniImg,
       imageGradient: 'linear-gradient(135deg, #ed733b 0%, #ff9f43 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap'],
       link: 'https://omnirental.onrender.com/',
@@ -114,7 +118,11 @@ export default function WorkSection() {
             <div key={project.id} className="work-card">
               <div 
                 className="work-preview" 
-                style={{ background: project.imageGradient }}
+                style={{ 
+                  backgroundImage: project.image ? `url(${project.image})` : project.imageGradient,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'top center'
+                }}
               >
                 <div className="work-category-chip">{project.category}</div>
                 <div className="preview-overlay">
