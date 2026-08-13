@@ -18,8 +18,7 @@ export default function WorkSection() {
       image: rsfImg,
       imageGradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'Brevo Email'],
-      link: 'https://rsf-a.onrender.com/pledge',
-      github: 'https://github.com/Indu-Singh'
+      link: 'https://rsf-a.onrender.com/pledge'
     },
     {
       id: 2,
@@ -30,8 +29,7 @@ export default function WorkSection() {
       image: omniImg,
       imageGradient: 'linear-gradient(135deg, #ed733b 0%, #ff9f43 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap'],
-      link: 'https://omnirental.onrender.com/',
-      github: 'https://github.com/Mohit-Yyadav/OmniRental'
+      link: 'https://omnirental.onrender.com/'
     },
     {
       id: 3,
@@ -41,8 +39,7 @@ export default function WorkSection() {
       desc: 'Full-stack food catering management platform allowing users to browse event menus, customize package bookings, manage reservations, and handle customer order workflows.',
       imageGradient: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
-      link: 'https://github.com/Indu-Singh',
-      github: 'https://github.com/Indu-Singh'
+      link: '#'
     },
     {
       id: 4,
@@ -52,8 +49,7 @@ export default function WorkSection() {
       desc: 'Responsive e-commerce platform clone featuring dynamic product listing, interactive shopping cart management, user authentication, checkout workflows, and order summaries.',
       imageGradient: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
       tags: ['React.js', 'Context API', 'JavaScript', 'CSS3', 'Node.js'],
-      link: 'https://github.com/Indu-Singh',
-      github: 'https://github.com/Indu-Singh'
+      link: '#'
     },
     {
       id: 5,
@@ -63,8 +59,7 @@ export default function WorkSection() {
       desc: 'Product management web application featuring dynamic product listing, end-to-end CRUD functionality, RESTful API integration, and MongoDB-based data persistence.',
       imageGradient: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
-      link: 'https://github.com/Indu-Singh',
-      github: 'https://github.com/Indu-Singh'
+      link: '#'
     },
     {
       id: 6,
@@ -74,8 +69,7 @@ export default function WorkSection() {
       desc: 'Creative personal portfolio featuring 300-frame GPU pre-decoded canvas animation, instant progressive loading (<0.5s), 60 FPS smooth scroll physics, 3D text emergence, and dark/light themes.',
       imageGradient: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
       tags: ['React.js', 'Vite', 'Canvas 2D/3D', 'CSS3', 'Modern Glassmorphism'],
-      link: 'https://github.com/Indu-Singh692/Project-Portfolio',
-      github: 'https://github.com/Indu-Singh692/Project-Portfolio'
+      link: '#home'
     }
   ];
 
@@ -126,12 +120,9 @@ export default function WorkSection() {
               >
                 <div className="work-category-chip">{project.category}</div>
                 <div className="preview-overlay">
-                  <a href={project.link} target="_blank" rel="noreferrer" className="preview-action-btn demo-btn">
-                    Live Demo ↗
-                  </a>
-                  {project.github && (
-                    <a href={project.github} target="_blank" rel="noreferrer" className="preview-action-btn code-btn">
-                      GitHub Code ↗
+                  {project.link !== '#' && (
+                    <a href={project.link} target="_blank" rel="noreferrer" className="preview-action-btn demo-btn">
+                      Live Demo ↗
                     </a>
                   )}
                 </div>
