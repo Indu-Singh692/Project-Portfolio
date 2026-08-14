@@ -152,12 +152,6 @@ export default function Navbar({ theme, toggleTheme }) {
           <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
           <a href="#process" onClick={() => setMobileMenuOpen(false)}>Process</a>
           <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-          <div className="mobile-theme-row">
-            <span>Theme Mode:</span>
-            <button className="theme-toggle-btn" onClick={toggleTheme}>
-              {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
-            </button>
-          </div>
         </div>
       )}
     </header>
