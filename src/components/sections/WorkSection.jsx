@@ -20,7 +20,8 @@ export default function WorkSection() {
       image: rsfImg,
       imageGradient: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'Brevo Email'],
-      link: 'https://rsf-a.onrender.com/pledge'
+      link: 'https://rsf-a.onrender.com/pledge',
+      github: 'https://github.com/Indu-Singh692/Project-Portfolio'
     },
     {
       id: 2,
@@ -31,7 +32,8 @@ export default function WorkSection() {
       image: omniImg,
       imageGradient: 'linear-gradient(135deg, #ed733b 0%, #ff9f43 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap'],
-      link: 'https://omnirental.onrender.com/'
+      link: 'https://omnirental.onrender.com/',
+      github: 'https://github.com/Mohit-Yyadav/OmniRental'
     },
     {
       id: 3,
@@ -42,7 +44,8 @@ export default function WorkSection() {
       image: productImg,
       imageGradient: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
       tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
-      link: 'https://productcrud-frontend.onrender.com/'
+      link: 'https://productcrud-frontend.onrender.com/',
+      github: 'https://github.com/Indu-Singh692/Project-Portfolio'
     },
     {
       id: 4,
@@ -53,7 +56,8 @@ export default function WorkSection() {
       image: portfolioImg,
       imageGradient: 'linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%)',
       tags: ['React.js', 'Vite', 'Canvas 2D/3D', 'CSS3', 'Modern Glassmorphism'],
-      link: 'https://projectportfolio-lvjl.onrender.com'
+      link: 'https://projectportfolio-lvjl.onrender.com',
+      github: 'https://github.com/Indu-Singh692/Project-Portfolio'
     }
   ];
 
@@ -104,9 +108,14 @@ export default function WorkSection() {
               >
                 <div className="work-category-chip">{project.category}</div>
                 <div className="preview-overlay">
-                  {project.link !== '#' && (
+                  {project.link && (
                     <a href={project.link} target="_blank" rel="noreferrer" className="preview-action-btn demo-btn">
                       Live Demo ↗
+                    </a>
+                  )}
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer" className="preview-action-btn github-btn">
+                      GitHub Code 💻
                     </a>
                   )}
                 </div>
