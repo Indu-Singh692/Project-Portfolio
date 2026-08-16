@@ -153,6 +153,7 @@
     opacity: 0;
     transform: translate(-50%, 8px);
   }
+
   to {
     opacity: 1;
     transform: translate(-50%, 0);
@@ -181,10 +182,21 @@
   flex-shrink: 0;
 }
 
-.dot-blue { background: #3b82f6; }
-.dot-orange { background: #ed733b; }
-.dot-purple { background: #a855f7; }
-.dot-emerald { background: #10b981; }
+.dot-blue {
+  background: #3b82f6;
+}
+
+.dot-orange {
+  background: #ed733b;
+}
+
+.dot-purple {
+  background: #a855f7;
+}
+
+.dot-emerald {
+  background: #10b981;
+}
 
 .item-title {
   font-size: 0.85rem;
@@ -359,6 +371,7 @@
   .desktop-menu {
     display: none;
   }
+
   .hamburger-toggle {
     display: flex;
   }
