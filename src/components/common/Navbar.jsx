@@ -25,24 +25,37 @@ export default function Navbar({ theme, toggleTheme }) {
         {/* Brand Logo */}
         <a href="#home" className="navbar-logo">
           <div className="logo-badge-modern">
-            <svg width="34" height="34" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="40" height="40" rx="10" fill="url(#logo-grad-bg)" />
-              <path d="M12 14L7 20L12 26" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M28 14L33 20L28 26" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <circle cx="20" cy="20" r="4.5" fill="url(#logo-grad-core)" />
+            <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="12" fill="url(#is-logo-grad)" />
+              <rect x="1" y="1" width="38" height="38" rx="11" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+              
+              {/* Monogram 'I' */}
+              <path d="M12 11H17M14.5 11V29M12 29H17" stroke="#ffffff" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"/>
+              
+              {/* Monogram 'S' */}
+              <path d="M28 14.5C28 12.5 25.8 11 23.5 11C21.2 11 19 12.8 19 15.2C19 18.5 27 17.5 27 21.8C27 24.5 24.5 26 22 26C19.5 26 17.5 24.2 17.5 22.5" stroke="url(#is-s-grad)" strokeWidth="2.8" strokeLinecap="round"/>
+              
+              {/* Glowing Core Tech Dot */}
+              <circle cx="28" cy="11.5" r="2" fill="#38bdf8" />
+              <circle cx="12" cy="28.5" r="2" fill="#ed733b" />
+
               <defs>
-                <linearGradient id="logo-grad-bg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#6366f1" />
-                  <stop offset="1" stopColor="#8b5cf6" />
+                <linearGradient id="is-logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#4f46e5" />
+                  <stop offset="0.5" stopColor="#7c3aed" />
+                  <stop offset="1" stopColor="#1e1b4b" />
                 </linearGradient>
-                <linearGradient id="logo-grad-core" x1="15" y1="15" x2="25" y2="25" gradientUnits="userSpaceOnUse">
+                <linearGradient id="is-s-grad" x1="18" y1="11" x2="28" y2="26" gradientUnits="userSpaceOnUse">
                   <stop stopColor="#ed733b" />
                   <stop offset="1" stopColor="#ff9f43" />
                 </linearGradient>
               </defs>
             </svg>
           </div>
-          <span className="logo-title">INDU SINGH</span>
+          <div className="logo-text-group">
+            <span className="logo-title">INDU SINGH</span>
+            <span className="logo-subtitle">MERN DEVELOPER</span>
+          </div>
         </a>
 
         {/* Desktop Menu */}

@@ -63,14 +63,31 @@
   transform: scale(1.05) rotate(2deg);
 }
 
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
 .logo-title {
+  font-family: 'Outfit', 'Inter', sans-serif;
   font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
   color: var(--text-color);
   background: linear-gradient(135deg, var(--text-color) 60%, #8b5cf6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.logo-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #a5b4fc;
+  text-transform: uppercase;
+  margin-top: 1px;
 }
 
 /* Desktop Menu Links */
