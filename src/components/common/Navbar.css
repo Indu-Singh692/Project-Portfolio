@@ -21,11 +21,11 @@
   max-width: 1120px;
   height: 64px;
   border-radius: 40px;
-  background: rgba(12, 12, 18, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: none;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  background: rgba(12, 12, 18, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65);
 }
 
 .navbar-container {
@@ -153,7 +153,6 @@
     opacity: 0;
     transform: translate(-50%, 8px);
   }
-
   to {
     opacity: 1;
     transform: translate(-50%, 0);
@@ -182,21 +181,10 @@
   flex-shrink: 0;
 }
 
-.dot-blue {
-  background: #3b82f6;
-}
-
-.dot-orange {
-  background: #ed733b;
-}
-
-.dot-purple {
-  background: #a855f7;
-}
-
-.dot-emerald {
-  background: #10b981;
-}
+.dot-blue { background: #3b82f6; }
+.dot-orange { background: #ed733b; }
+.dot-purple { background: #a855f7; }
+.dot-emerald { background: #10b981; }
 
 .item-title {
   font-size: 0.85rem;
@@ -284,11 +272,11 @@
    Light Mode Specific Navbar Styling (Dark Mode Remains 100% Untouched)
    ========================================================================== */
 
-/* Light Mode: Unscrolled Header (Over dark hero canvas) */
+/* Light Mode: Unscrolled Header (Over top dark shadow overlay) */
 [data-theme="light"] .navbar-header:not(.scrolled) .nav-link {
-  color: #ffffff;
+  color: #ffffff !important;
   font-weight: 600;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
 [data-theme="light"] .navbar-header:not(.scrolled) .logo-title {
@@ -297,30 +285,34 @@
   -webkit-text-fill-color: transparent;
 }
 
+[data-theme="light"] .navbar-header:not(.scrolled) .logo-subtitle {
+  color: #e0e7ff;
+}
+
 [data-theme="light"] .navbar-header:not(.scrolled) .hamburger-toggle span {
   background: #ffffff;
 }
 
 [data-theme="light"] .navbar-header:not(.scrolled) .theme-toggle-btn {
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 /* Light Mode: Scrolled Floating Pill State */
 [data-theme="light"] .navbar-header.scrolled {
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
 
 [data-theme="light"] .navbar-header.scrolled .nav-link {
-  color: #0f172a;
+  color: #0f172a !important;
   font-weight: 600;
 }
 
 [data-theme="light"] .navbar-header.scrolled .nav-link:hover {
-  color: #ed733b;
+  color: #ed733b !important;
 }
 
 [data-theme="light"] .navbar-header.scrolled .logo-title {
@@ -329,21 +321,25 @@
   -webkit-text-fill-color: transparent;
 }
 
+[data-theme="light"] .navbar-header.scrolled .logo-subtitle {
+  color: #6366f1;
+}
+
 [data-theme="light"] .navbar-header.scrolled .hamburger-toggle span {
   background: #0f172a;
 }
 
 [data-theme="light"] .navbar-header.scrolled .theme-toggle-btn {
   color: #0f172a;
-  border-color: rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.15);
   background: rgba(0, 0, 0, 0.06);
 }
 
 /* Light Mode: Dropdown Menu */
 [data-theme="light"] .dropdown-menu {
   background: rgba(255, 255, 255, 0.96);
-  border-color: rgba(0, 0, 0, 0.1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="light"] .item-title {
@@ -371,7 +367,6 @@
   .desktop-menu {
     display: none;
   }
-
   .hamburger-toggle {
     display: flex;
   }
